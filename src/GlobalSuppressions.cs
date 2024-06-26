@@ -1,0 +1,3 @@
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Maintainability", "CA1515:Consider making public types internal", Justification = "Reviewed.")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0058:Remove unnecessary expression value", Justification = "Reviewed.")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0008:Use var instead of explicit type", Justification = "Reviewed.")]

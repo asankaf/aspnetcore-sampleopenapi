@@ -1,0 +1,41 @@
+@origin=https://localhost:7182
+
+# Get OpenAPI document for v1.0 API
+GET {{origin}}/openapi/v1.0.json
+
+#########################################
+
+# Get OpenAPI document for v2.0 API
+GET {{origin}}/openapi/v2.0.json
+
+#########################################
+
+# Get weather forecasts from v1.0 API
+GET {{origin}}/api/v1.0/forecasts
+
+#########################################
+
+# Get weather forecasts from v2.0 API
+GET {{origin}}/api/v2.0/forecasts
+
+#########################################
+
+# Get weather forecast for date from v2.0 API
+GET {{origin}}/api/v2.0/forecasts/2024-06-26
+
+#########################################
+
+# Get default error response
+GET {{origin}}/api/v2.0/errordemo/default
+
+#########################################
+
+# Get sample ProblemDetails error response
+GET {{origin}}/api/v2.0/errordemo/problem
+
+#########################################
+
+# Get sample ValidationProblem error response
+GET {{origin}}/api/v2.0/errordemo/validationproblem
+
+#########################################
