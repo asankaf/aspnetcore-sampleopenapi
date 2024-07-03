@@ -7,6 +7,8 @@
     <AnalysisLevel>latest-all</AnalysisLevel>
     <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <RestoreLockedMode>true</RestoreLockedMode>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
     <OpenApiGenerateDocuments>true</OpenApiGenerateDocuments>
