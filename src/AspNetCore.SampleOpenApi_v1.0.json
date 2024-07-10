@@ -18,7 +18,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "boolean"
+                  "$ref": "#/components/schemas/boolean"
                 }
               }
             }
@@ -28,36 +28,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "title": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "status": {
-                      "type": "integer",
-                      "format": "int32",
-                      "nullable": true
-                    },
-                    "detail": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "instance": {
-                      "type": "string",
-                      "nullable": true
-                    }
-                  }
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
           }
-        },
-        "x-aspnetcore-id": "1b2c0a74-a8b9-4fdf-a252-2fe271164965"
+        }
       }
     },
     "/api/v1.0/errordemo/problem": {
@@ -72,7 +48,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "boolean"
+                  "$ref": "#/components/schemas/boolean"
                 }
               }
             }
@@ -82,30 +58,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "title": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "status": {
-                      "type": "integer",
-                      "format": "int32",
-                      "nullable": true
-                    },
-                    "detail": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "instance": {
-                      "type": "string",
-                      "nullable": true
-                    }
-                  }
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -115,36 +68,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "title": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "status": {
-                      "type": "integer",
-                      "format": "int32",
-                      "nullable": true
-                    },
-                    "detail": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "instance": {
-                      "type": "string",
-                      "nullable": true
-                    }
-                  }
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
           }
-        },
-        "x-aspnetcore-id": "cc730d03-3806-4c96-a091-ee733f8e1095"
+        }
       }
     },
     "/api/v1.0/errordemo/validationproblem": {
@@ -159,7 +88,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "boolean"
+                  "$ref": "#/components/schemas/boolean"
                 }
               }
             }
@@ -169,30 +98,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "title": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "status": {
-                      "type": "integer",
-                      "format": "int32",
-                      "nullable": true
-                    },
-                    "detail": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "instance": {
-                      "type": "string",
-                      "nullable": true
-                    }
-                  }
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -202,36 +108,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "title": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "status": {
-                      "type": "integer",
-                      "format": "int32",
-                      "nullable": true
-                    },
-                    "detail": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "instance": {
-                      "type": "string",
-                      "nullable": true
-                    }
-                  }
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
           }
-        },
-        "x-aspnetcore-id": "72a114a8-273c-460c-b1ba-02cfc5460bba"
+        }
       }
     },
     "/api/v1.0/forecasts": {
@@ -281,36 +163,48 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "title": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "status": {
-                      "type": "integer",
-                      "format": "int32",
-                      "nullable": true
-                    },
-                    "detail": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "instance": {
-                      "type": "string",
-                      "nullable": true
-                    }
-                  }
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
           }
-        },
-        "x-aspnetcore-id": "098a1916-bc61-4b03-bf43-1a6b0c22a9f8"
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "boolean": {
+        "type": "boolean"
+      },
+      "int?": {
+        "type": "integer",
+        "format": "int32",
+        "nullable": true
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/string"
+          },
+          "title": {
+            "$ref": "#/components/schemas/string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/int?"
+          },
+          "detail": {
+            "$ref": "#/components/schemas/string"
+          },
+          "instance": {
+            "$ref": "#/components/schemas/string"
+          }
+        }
+      },
+      "string": {
+        "type": "string",
+        "nullable": true
       }
     }
   },
