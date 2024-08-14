@@ -18,7 +18,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/boolean"
+                  "type": "boolean"
                 }
               }
             }
@@ -26,7 +26,7 @@
           "default": {
             "description": "",
             "content": {
-              "application/json": {
+              "application/problem+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -48,7 +48,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/boolean"
+                  "type": "boolean"
                 }
               }
             }
@@ -56,7 +56,7 @@
           "409": {
             "description": "Conflict",
             "content": {
-              "application/json": {
+              "application/problem+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -66,7 +66,7 @@
           "default": {
             "description": "",
             "content": {
-              "application/json": {
+              "application/problem+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -88,7 +88,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/boolean"
+                  "type": "boolean"
                 }
               }
             }
@@ -96,7 +96,7 @@
           "409": {
             "description": "Conflict",
             "content": {
-              "application/json": {
+              "application/problem+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -106,7 +106,7 @@
           "default": {
             "description": "",
             "content": {
-              "application/json": {
+              "application/problem+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -128,10 +128,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
+                  "$ref": "#/components/schemas/ArrayOfWeatherForecast"
                 }
               }
             }
@@ -139,7 +136,7 @@
           "default": {
             "description": "",
             "content": {
-              "application/json": {
+              "application/problem+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -161,7 +158,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/DateOnly"
+              "type": "string",
+              "format": "date"
             }
           }
         ],
@@ -179,7 +177,7 @@
           "default": {
             "description": "",
             "content": {
-              "application/json": {
+              "application/problem+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -192,45 +190,37 @@
   },
   "components": {
     "schemas": {
-      "boolean": {
-        "type": "boolean"
-      },
-      "DateOnly": {
-        "type": "string",
-        "format": "date"
-      },
-      "int": {
-        "type": "integer",
-        "format": "int32"
-      },
-      "int?": {
-        "type": "integer",
-        "format": "int32",
-        "nullable": true
+      "ArrayOfWeatherForecast": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/WeatherForecast"
+        }
       },
       "ProblemDetails": {
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/string"
+            "type": "string",
+            "nullable": true
           },
           "title": {
-            "$ref": "#/components/schemas/string"
+            "type": "string",
+            "nullable": true
           },
           "status": {
-            "$ref": "#/components/schemas/int?"
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           },
           "detail": {
-            "$ref": "#/components/schemas/string"
+            "type": "string",
+            "nullable": true
           },
           "instance": {
-            "$ref": "#/components/schemas/string"
+            "type": "string",
+            "nullable": true
           }
         }
-      },
-      "string": {
-        "type": "string",
-        "nullable": true
       },
       "WeatherForecast": {
         "required": [
@@ -241,13 +231,16 @@
         "type": "object",
         "properties": {
           "date": {
-            "$ref": "#/components/schemas/DateOnly"
+            "type": "string",
+            "format": "date"
           },
           "temperatureC": {
-            "$ref": "#/components/schemas/int"
+            "type": "integer",
+            "format": "int32"
           },
           "temperatureF": {
-            "$ref": "#/components/schemas/int"
+            "type": "integer",
+            "format": "int32"
           },
           "summary": {
             "type": "string"

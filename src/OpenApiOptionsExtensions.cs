@@ -1,4 +1,5 @@
 using Asp.Versioning.ApiExplorer;
+using AspNetCore.SampleOpenApi.Transformers;
 using Microsoft.AspNetCore.OpenApi;
 using Microsoft.Extensions.Primitives;
 using System.Text;
@@ -9,7 +10,7 @@ internal static class OpenApiOptionsExtensions
 {
     public static OpenApiOptions ApplyApiVersionInfo(this OpenApiOptions options, string title, string? description)
     {
-        options.UseTransformer((document, context, cancellationToken) =>
+        options.AddDocumentTransformer((document, context, cancellationToken) =>
         {
             var versionedDescriptionProvider = context
                 .ApplicationServices

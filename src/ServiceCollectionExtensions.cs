@@ -1,5 +1,6 @@
 using Asp.Versioning;
 using AspNetCore.SampleOpenApi;
+using AspNetCore.SampleOpenApi.Transformers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
@@ -57,6 +58,7 @@ internal static class ServiceCollectionExtensions
                 services.AddOpenApi(version, o =>
                 {
                     o.ApplyApiVersionInfo(options.Title, options.Description);
+                    o.AddOperationTransformer<ProblemDetailsOperationTransformer>();
                     //o.ApplyAuthorizationChecks([.. scopes.Keys]);
                     //o.ApplySecuritySchemeDefinitions();
                     //o.ApplyOperationDefaultValues();
