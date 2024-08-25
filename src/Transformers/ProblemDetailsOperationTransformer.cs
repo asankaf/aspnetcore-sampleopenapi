@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OpenApi;
 using Microsoft.OpenApi.Models;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Net.Mime;
 
 namespace AspNetCore.SampleOpenApi.Transformers;
@@ -12,50 +14,35 @@ internal sealed class ProblemDetailsOperationTransformer : IOpenApiOperationTran
 
     public Task TransformAsync(OpenApiOperation operation, OpenApiOperationTransformerContext context, CancellationToken cancellationToken)
     {
-        foreach (var (status, response) in operation.Responses) {
-            if (!IsErrorResponseStatus(status)) {
+
+        foreach (var responseType in context.Description.SupportedResponseTypes) {
+
+            if (responseType.StatusCode >= 200 && responseType.StatusCode < 300) {
                 continue;
             }
+
+            var responseKey = responseType.StatusCode == 0
+                ? "default"
+                : responseType.StatusCode.ToString(CultureInfo.InvariantCulture);
+
+            var response = operation.Responses[responseKey];
+
+            // If response CLR type/schema is ProblemDetails, and response has
+            // "application/json" content type but no "application/problem+json"
+            // content type, then change "application/json" to
+            // "application/problem+json".
             if (
+                responseType.ModelMetadata?.ModelType == typeof(ProblemDetails)
+                &&
                 !response.Content.ContainsKey(_problemDetailsMediaTypeName)
                 &&
                 response.Content.TryGetValue(MediaTypeNames.Application.Json, out var applicationJsonContent)
-                &&
-                IsProblemDetailsSchema(applicationJsonContent.Schema)
             ) {
-                response.Content.Add(_problemDetailsMediaTypeName, applicationJsonContent);
                 response.Content.Remove(MediaTypeNames.Application.Json);
+                response.Content.Add(_problemDetailsMediaTypeName, applicationJsonContent);
             }
         }
 
         return Task.CompletedTask;
-    }
-
-    private static bool IsErrorResponseStatus(string status) {
-        var result =
-            status.Equals("default", StringComparison.OrdinalIgnoreCase)
-            ||
-            (int.TryParse(status, out var statusCode) && statusCode >= 400);
-
-        return result;
-    }
-
-    private static bool IsProblemDetailsSchema(OpenApiSchema schema) {
-        var stringType = "string";
-        var intType = "integer";
-        var result =
-            schema.Type == "object" &&
-            HasSchemaProperty(schema.Properties, "type", stringType) &&
-            HasSchemaProperty(schema.Properties, "title", stringType) &&
-            HasSchemaProperty(schema.Properties, "status", intType) &&
-            HasSchemaProperty(schema.Properties, "detail", stringType) &&
-            HasSchemaProperty(schema.Properties, "instance", stringType);
-
-        return result;
-    }
-
-    private static bool HasSchemaProperty(IDictionary<string, OpenApiSchema> properties, string propName, string propType) {
-        var result = properties.ContainsKey(propName) && properties[propName].Type == propType;
-        return result;
     }
 }
