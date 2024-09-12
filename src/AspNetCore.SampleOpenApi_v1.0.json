@@ -128,7 +128,32 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ArrayOfWeatherForecast"
+                  "type": "array",
+                  "items": {
+                    "required": [
+                      "date",
+                      "temperatureC",
+                      "summary"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "date": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "temperatureC": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "temperatureF": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "summary": {
+                        "type": "string"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -149,34 +174,6 @@
   },
   "components": {
     "schemas": {
-      "ArrayOfWeatherForecast": {
-        "type": "array",
-        "items": {
-          "required": [
-            "date",
-            "temperatureC",
-            "summary"
-          ],
-          "type": "object",
-          "properties": {
-            "date": {
-              "type": "string",
-              "format": "date"
-            },
-            "temperatureC": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "temperatureF": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "summary": {
-              "type": "string"
-            }
-          }
-        }
-      },
       "ProblemDetails": {
         "type": "object",
         "properties": {

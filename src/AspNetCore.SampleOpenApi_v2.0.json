@@ -128,7 +128,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ArrayOfWeatherForecast"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
                 }
               }
             }
@@ -190,12 +193,6 @@
   },
   "components": {
     "schemas": {
-      "ArrayOfWeatherForecast": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/WeatherForecast"
-        }
-      },
       "ProblemDetails": {
         "type": "object",
         "properties": {
