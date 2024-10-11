@@ -130,29 +130,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "required": [
-                      "date",
-                      "temperatureC",
-                      "summary"
-                    ],
-                    "type": "object",
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date"
-                      },
-                      "temperatureC": {
-                        "type": "integer",
-                        "format": "int32"
-                      },
-                      "temperatureF": {
-                        "type": "integer",
-                        "format": "int32"
-                      },
-                      "summary": {
-                        "type": "string"
-                      }
-                    }
+                    "$ref": "#/components/schemas/WeatherForecast"
                   }
                 }
               }
@@ -197,6 +175,31 @@
           "instance": {
             "type": "string",
             "nullable": true
+          }
+        }
+      },
+      "WeatherForecast": {
+        "required": [
+          "date",
+          "temperatureC",
+          "summary"
+        ],
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "temperatureC": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "temperatureF": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "summary": {
+            "type": "string"
           }
         }
       }
