@@ -13,18 +13,18 @@
       },
       "Microsoft.AspNetCore.OpenApi": {
         "type": "Direct",
-        "requested": "[9.0.0-rc.*, )",
-        "resolved": "9.0.0-rc.2.24474.3",
-        "contentHash": "dh/zL60xpz9F07Ph86yEGPH2iHk9Ar9Nq8xuPk5jNVZP8ywVkZcsfOTo8GPV00/ZI/VCzTnSw+9rbsxO2KqyIQ==",
+        "requested": "[9.0.*, )",
+        "resolved": "9.0.0",
+        "contentHash": "FqUK5j1EOPNuFT7IafltZQ3cakqhSwVzH5ZW1MhZDe4pPXs9sJ2M5jom1Omsu+mwF2tNKKlRAzLRHQTZzbd+6Q==",
         "dependencies": {
           "Microsoft.OpenApi": "1.6.17"
         }
       },
       "Microsoft.Extensions.ApiDescription.Server": {
         "type": "Direct",
-        "requested": "[9.0.0-rc.*, )",
-        "resolved": "9.0.0-rc.2.24474.3",
-        "contentHash": "+rbWQG9jwIbHahAE8ksaKYc9bAO0LUP3aU9dyvvqOvo2FgiXzc33ABfQIpHaO17XMwMId9N2WWglyxnlUXZssw=="
+        "requested": "[9.0.*, )",
+        "resolved": "9.0.0",
+        "contentHash": "1Kzzf7pRey40VaUkHN9/uWxrKVkLu2AQjt+GVeeKLLpiEHAJ1xZRsLSh4ZZYEnyS7Kt2OBOPmsXNdU+wbcOl5w=="
       },
       "Asp.Versioning.Abstractions": {
         "type": "Transitive",
