@@ -6,6 +6,39 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/v1.0/accounts": {
+      "get": {
+        "tags": [
+          "LegalEntities"
+        ],
+        "operationId": "GetLegalEntityAccounts",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LegalEntity"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1.0/errordemo/default": {
       "get": {
         "tags": [
@@ -152,6 +185,79 @@
   },
   "components": {
     "schemas": {
+      "Account": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "Department": {
+        "required": [
+          "balance",
+          "assets",
+          "equity"
+        ],
+        "type": "object",
+        "properties": {
+          "balance": {
+            "$ref": "#/components/schemas/Account"
+          },
+          "assets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Account"
+            }
+          },
+          "equity": {
+            "$ref": "#/components/schemas/Account"
+          }
+        }
+      },
+      "LegalEntity": {
+        "required": [
+          "balances",
+          "assets",
+          "equities",
+          "deletedAccounts"
+        ],
+        "type": "object",
+        "properties": {
+          "balances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Account"
+            }
+          },
+          "assets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/#/items/properties/balances/items"
+            }
+          },
+          "equities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/#/items/properties/balances/items"
+            }
+          },
+          "deletedAccounts": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      },
       "ProblemDetails": {
         "type": "object",
         "properties": {
@@ -206,6 +312,12 @@
     }
   },
   "tags": [
+    {
+      "name": "Departments"
+    },
+    {
+      "name": "LegalEntities"
+    },
     {
       "name": "ErrorDemo"
     },
