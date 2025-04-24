@@ -14,8 +14,8 @@
       "Microsoft.AspNetCore.OpenApi": {
         "type": "Direct",
         "requested": "[9.0.*, )",
-        "resolved": "9.0.0",
-        "contentHash": "FqUK5j1EOPNuFT7IafltZQ3cakqhSwVzH5ZW1MhZDe4pPXs9sJ2M5jom1Omsu+mwF2tNKKlRAzLRHQTZzbd+6Q==",
+        "resolved": "9.0.4",
+        "contentHash": "GfZWPbZz1aAtEO3wGCkpeyRc0gzr/+VRHnUgY/YjqVPDlHbeKWCXw3IxKarQdo9myC2O1QBf652Mo50QqbXYRg==",
         "dependencies": {
           "Microsoft.OpenApi": "1.6.17"
         }
@@ -23,8 +23,8 @@
       "Microsoft.Extensions.ApiDescription.Server": {
         "type": "Direct",
         "requested": "[9.0.*, )",
-        "resolved": "9.0.0",
-        "contentHash": "1Kzzf7pRey40VaUkHN9/uWxrKVkLu2AQjt+GVeeKLLpiEHAJ1xZRsLSh4ZZYEnyS7Kt2OBOPmsXNdU+wbcOl5w=="
+        "resolved": "9.0.4",
+        "contentHash": "3mEHOVCUYzb43cd4HLY6KyttijWv/i7f348o/IBGMovDNZd4BPxq17Jp43r1Ti3MpYUNzt9BZ1SQuXS0/yZP9A=="
       },
       "Asp.Versioning.Abstractions": {
         "type": "Transitive",
