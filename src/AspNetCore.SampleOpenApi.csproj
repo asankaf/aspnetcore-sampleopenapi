@@ -16,6 +16,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="packages.lock.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.*" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.*" />
     <PackageReference Include="Microsoft.Extensions.ApiDescription.Server" Version="9.0.*" />
